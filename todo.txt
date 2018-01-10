@@ -1,3 +1,6 @@
+Mountain Climbers - Addison Huang, Kenny Li, Simon Tsui
+APCSPD1
+
 List of Things To Do
 1. Sketch out flowcharts and uml diagrams
 2. Revise (add/remove methods and variables accordingly)
