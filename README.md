@@ -21,6 +21,7 @@ To win, the player will have to buy all prizes from the prize shop. </br>
 
 <b> <h1> How to play </h1> </b>
 <ol> <li> $ javac Woo.java </li>
-  <li> $ java Woo </li> </ol>
+  <li> $ java Woo </li> 
+  <li> Follow the instructions </li> </ol>
   
   Gl hf! 
