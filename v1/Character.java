@@ -5,7 +5,7 @@ public class Character {
     //instance vars
     private String username;
     private String password;
-    private double balance;
+    public double balance;
     private int winCounter;
     private int lossCounter;
     public ArrayList<String> shop;
@@ -25,6 +25,11 @@ public class Character {
 	username = newName;
 	password = newPassword;
     }
+
+    public double getBalance() {
+	return balance;
+    }
+
     public void choosePlace(){
 	System.out.println("Choose a place to go: ");
 	String location = "casino";  //takes in input from person
