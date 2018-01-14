@@ -6,13 +6,13 @@ abstract class Game {
     protected double winnings;
     protected double wager;
 
-    protected void placeBet() {
+    /*protected abstract void placeBet(){
 	wager = 23.0; //user input wager
-	if (minBet >= Character.balance) {
-	    bet = Character.balance;
+	if (minBet >= Character.getBalance()) {
+	    bet = Character.getBalance();
 	    System.out.println("Your bet was less than the minimum bet.");
 	    System.out.println("Your bet was set to $" + bet);
-	} else if (wager <= Character.balance) {
+	} else if (wager <= Character.getBalance()) {
 	    bet = wager;
 	    System.out.println("You bet $" + bet);
 	} else {
@@ -20,7 +20,8 @@ abstract class Game {
 	    placeBet();
 	}
     }
-    
+    */
     protected abstract void playOnce();
     protected abstract boolean outcome();
+    
 }

@@ -5,7 +5,7 @@ public class Character {
     //instance vars
     private String username;
     private String password;
-    public double balance;
+    private double balance;
     private int winCounter;
     private int lossCounter;
     public ArrayList<String> shop;
@@ -28,7 +28,7 @@ public class Character {
 
     public double getBalance() {
 	return balance;
-    }
+	}
 
     public void choosePlace(){
 	System.out.println("Choose a place to go: ");
