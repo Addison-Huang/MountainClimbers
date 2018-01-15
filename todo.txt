@@ -6,8 +6,8 @@ List of Things To Do
 2. Revise (add/remove methods and variables accordingly)
 3. Make Woo.java runnable
 4. Create Character.java, test runnability via Woo.java
-5. Create Casino.java, test runnability via Woo.java
-6. Create the abstract Game.java and its subclasses
-7. Test runabillity of game subclasses
-8. Test for interactivity between classes, ie. bets placed on games affecting character's balance
-9. Sweep for bugs
+5. Create the abstract Game.java and its subclasses
+6. Test runabillity of game subclasses
+7. Test for interactivity between classes, ie. bets placed on games affecting character's balance
+8. Sweep for bugs
+9. STRETCH - have progress be saved by outputting data into text file.
