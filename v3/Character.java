@@ -33,6 +33,13 @@ public class Character {
 	return bet;
 	}
 
+    public void remBal(double lost) {
+	balance -= lost;
+    }
+    public double getBal() {
+	return balance;
+    }
+    
     public void choosePlace(){
 	System.out.println("Choose a place to go: ");
 	String location = "casino";  //takes in input from person
@@ -93,6 +100,11 @@ public class Character {
 	    balance = 0;
 	    System.out.println("Your bet was less than the minimum bet.");
 	    System.out.println("Your bet was set to $" + bet);
+	} else if (minBet > wager) {
+	    bet = minBet;
+	    balance -= bet;
+	    System.out.println("Your bet was less than the minimum bet.");
+	    System.out.println("Your bet was set to $" + bet);  
 	} else if (wager <= balance) {
 	    bet = wager;
 	    balance -= bet;
