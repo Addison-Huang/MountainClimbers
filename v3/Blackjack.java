@@ -13,7 +13,7 @@ public class Blackjack extends Game{
   }
   
   private void setHand(String[] hand){
-	for(int i = 0; i < 2; i++) {
+    for(int i = 0; i < 2; i++) {
       int random = (int)(Math.random() * 13);
       hand[i] = deck[random];
     }
@@ -26,29 +26,29 @@ public class Blackjack extends Game{
     }
     int random = (int)(Math.random() * 13);
     temp[hand.length] = deck[random];
-	if (hand.equals(playerHand)) {
-		playerHand = temp;
-	} else if (hand.equals(dealerHand)) {
-		dealerHand = temp;
-	}
+      if (hand.equals(playerHand)) {
+	playerHand = temp;
+      } else if (hand.equals(dealerHand)) {
+	dealerHand = temp;
+      }
   }
 
   private int calculateTotal(String[] hand){
     int acectr = 0;
     int total = 0;
     for(int i = 0; i < hand.length; i++){
-		for(int x = 0; x < deck.length; x++) {
-			if (deck[x] == hand[i]) {
-				if (x == 0) {
-					acectr++;
-				} else if (x < 10)   {
-					total += x + 1;
-				} else {
-					total += 10;
-				}
-			}
-		}
-	}
+      for(int x = 0; x < deck.length; x++) {
+        if (deck[x] == hand[i]) {
+          if (x == 0) {
+            acectr++;
+          } else if (x < 10) {
+            total += x + 1;
+          } else {
+            total += 10;
+          }
+        }
+      }
+    }
 	
     for(; acectr > 0; acectr--){
       if(total + 11 <= 21){
@@ -97,7 +97,7 @@ public class Blackjack extends Game{
     System.out.println(this);
     while(playing){
       System.out.println(statement);
-	  int total = calculateTotal(playerHand);
+      int total = calculateTotal(playerHand);
       System.out.println("Your cards currently add up to: " + total);
       if(outcome(player)) {
         if(total == 21 && playerHand.length == 2){
