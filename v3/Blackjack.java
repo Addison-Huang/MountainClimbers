@@ -63,11 +63,9 @@ public class Blackjack extends Game{
 	for(; acectr > 0; acectr--){
 	    if(total + 11 <= 21){
 		total += 11;
-		acectr--;
 	    }
 	    else {
 		total += 1;
-		acectr--;
 	    }
 	}
 	return total;
