@@ -1,11 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import cs1.Keyboard;
 
 public class Character {
     //instance vars
     private String username;
     private String password;
     private double balance;
+    private double bet;
+    private double minBet = 20.0;
     private int winCounter;
     private int lossCounter;
     public ArrayList<String> shop;
@@ -26,8 +29,8 @@ public class Character {
 	password = newPassword;
     }
 
-    public double getBalance() {
-	return balance;
+    public double getBet() {
+	return bet;
 	}
 
     public void choosePlace(){
@@ -41,6 +44,10 @@ public class Character {
 	    chooseDrink();
 	}
 	    
+    }
+
+    public void addBal(double winnings) {
+	balance += winnings;
     }
     public void chooseGame(){
 	System.out.println("Choose a game:");
@@ -75,6 +82,24 @@ public class Character {
 	else {
 	    System.out.println("Insufficient balance");
 	    return false;
+	}
+    }
+
+    public void placeBet(){
+	System.out.println("What would you like to bet?");
+	double wager = Keyboard.readDouble();
+	if (minBet >= balance) {
+	    bet = balance;
+	    balance = 0;
+	    System.out.println("Your bet was less than the minimum bet.");
+	    System.out.println("Your bet was set to $" + bet);
+	} else if (wager <= balance) {
+	    bet = wager;
+	    balance -= bet;
+	    System.out.println("You bet $" + bet);
+	} else {
+	    System.out.println("Your bet was higher than your balance!");
+	    placeBet();
 	}
     }
 	

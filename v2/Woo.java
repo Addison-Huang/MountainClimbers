@@ -8,5 +8,7 @@ public class Woo{
 	System.out.println(player.shopPrice);*/
 	Game x = new Roulette();
 	x.playOnce(player);
+	Game y = new Slots();
+	y.playOnce(player);
     }
 }
