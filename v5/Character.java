@@ -10,91 +10,112 @@ public class Character {
     public ArrayList<String> shop;
     public ArrayList<String> inventory;
     public ArrayList<Double> shopPrice;
-    
+
+    //default constructor
     public Character(){
 	balance = 1000;
-	shop = new ArrayList<String>(Arrays.asList("ring", "table", "box", "car")); 
+	shop = new ArrayList<String>(Arrays.asList("ring", "table", "robot dog", "car")); 
 	inventory = new ArrayList<String>();
-	shopPrice = new ArrayList<Double>(Arrays.asList(100.0, 300.0, 400.0, 23.0));
+	shopPrice = new ArrayList<Double>(Arrays.asList(1500.0, 500.0, 5000.0  , 20000.0));
     }
 
+    //returns bet
     public double getBet() {
     	return bet;
-	}
-	
+    }
+
+    //removes lost from balance
     public void remBal(double lost) {
 	balance -= lost;
     }
-	
+
+    //adds winnings to balance
     public void addBal(double winnings) {
 	balance += winnings;
     }
-	
+
+    //gets balance
     public double getBal() {
 	return balance;
     }
-    
+
+    //chooses the destination
     public void choosePlace(){
 	System.out.println("Where would you like to go? (casino, shop or quit)");
 	String location = Keyboard.readString();
 	if (location.equals("casino")){
 	    chooseGame();
 	} else if(location.equals("shop")){
-		shop();
+	    shop();
 	} else if(location.equals("quit")){
-		quitGame();
+	    quitGame();
 	}
     }
 
-	public void shop() {
+    //the shop where you buy prizes
+    public void shop() {
 	System.out.println("Welcome to the shop.");
 	System.out.println("Your current balance is $" + getBal());		
 	System.out.println("What would you like to buy? (choose a number)");
 	for(int i = 0; i < shop.size(); i++) {
-		System.out.println(i + 1 + "." + shop.get(i) + " $" + shopPrice.get(i));
+	    System.out.println(i + 1 + "." + shop.get(i) + " $" + shopPrice.get(i));
 	}
 	int exit = shop.size() + 1;
 	System.out.println(exit + ".exit shop");
 	int x = Keyboard.readInt();
 	if (x == exit) {
-		choosePlace();
+	    choosePlace();
 	} else {
-		toBuy(x - 1);
-		if (isWin()) {
-			System.out.println("Congratulations, you win!");
-		} else {
+	    toBuy(x - 1);
+	    if (isWin()) {
+		System.out.println("Congratulations, you win!");
+		System.out.println("You have beat the casino!");
+	    } else {
 		shop();
-		}
+	    }
 	}
-	}
-	
-	public boolean isWin() {
+    }
+    
+    //checks if the shop is empty, in which case you win
+    public boolean isWin() {
 	if (shop.size() == 0) {
-		return true;
+	    return true;
 	} else {
-		return false;
+	    return false;
 	}
-	}
+    }
 
+    //player chooses game
     public void chooseGame() {
-	System.out.println("Which game would you like to play? (slots, roulette, blackjack)");
+	System.out.println("Which game would you like to play? (slots, roulette, blackjack, dice)");
 	String game = Keyboard.readString();
 	if(game.equals("slots")){
-		Game g = new Slots();
-		g.playOnce(this);
-		afterGame(g);	
+	    Game g = new Slots();
+	    g.playOnce(this);
+	    afterGame(g);	
 	}else if(game.equals("roulette")){
-		Game g = new Roulette();
-		g.playOnce(this);
-		afterGame(g);		
+	    Game g = new Roulette();
+	    g.playOnce(this);
+	    afterGame(g);		
 	}else if(game.equals("blackjack")){
-		Game g = new Blackjack();
-		g.playOnce(this);
-		afterGame(g);		
+	    Game g = new Blackjack();
+	    g.playOnce(this);
+	    afterGame(g);		
 	}
+	else if (game.equals("dice")) {
+	    Game g = new Dice();
+	    g.playOnce(this);
+	    afterGame(g);
 	}
-	
-	public void afterGame(Game g) {
+	else {
+	    System.out.println("invalid choice!");
+	    System.out.println("Pick something else!");
+	    chooseGame();
+	}
+    }
+    
+    //after the game the player chooses what to do
+    public void afterGame(Game g) {
 	System.out.println("\n");
 	System.out.println("What would you like to do? (choose a number)");
 	String str = ("1. Play again.\n");
@@ -104,23 +125,24 @@ public class Character {
 	System.out.println(str);
 	int x = Keyboard.readInt();
 	if (x == 1) {
-		g.playOnce(this);
-		afterGame(g);
+	    g.playOnce(this);
+	    afterGame(g);
 	} else if (x == 2) {
-		chooseGame();
+	    chooseGame();
 	} else if (x == 3) {
-		choosePlace();
+	    choosePlace();
 	} else if (x == 4) {
-		quitGame();
+	    quitGame();
 	}
-	}
+    }
 
-	public void quitGame() {
+    //the player quits 
+    public void quitGame() {
 	System.out.println("Leaving game...");
 	System.out.println("Thanks for playing!");		
     }
 
-
+    //the player buys something from the shop, helper method
     public void toBuy(int x) {
 	if (balance >= shopPrice.get(x)) {
 	    String y = shop.remove(x);
@@ -132,6 +154,7 @@ public class Character {
 	}
     }
 
+    //places the bet before certain games
     public void placeBet(){
 	System.out.println("Your current balance is $" + getBal());
 	System.out.println("What would you like to bet?");
