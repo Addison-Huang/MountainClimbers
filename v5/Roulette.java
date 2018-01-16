@@ -1,12 +1,15 @@
 import cs1.Keyboard;
 public class Roulette extends Game {
+    //instance vars
     private String gamble;
     private int spin;
 
+    //default constructor
     public Roulette() {
 	name = "Roulette";
     }
 
+    //overwritten toString with instructions
     public String toString() {
 	String retStr = "Welcome to Roulette! Here are the rules.\n";
 	retStr += "This board consists of 37 numbers labeled from 0 to 36.\n";
@@ -15,6 +18,7 @@ public class Roulette extends Game {
 	return retStr;
     }
 
+    //plays once, spins the board
     protected void playOnce(Character player) {
 	System.out.println(this);
 	if (toContinue()) {
@@ -27,8 +31,9 @@ public class Roulette extends Game {
 	    outcome(player);
 	    System.out.println("You have $" + player.getBal());		
 	}
-	}
+    }
 
+    //checks if it was a win or loss and changes balance accordingly
     protected void outcome(Character player) {
 	if ((spin == 0) && (gamble == "zero")) {
 	    winnings = player.getBet() * 35;
@@ -41,8 +46,8 @@ public class Roulette extends Game {
 	    System.out.println("We have a winner!");
 	    System.out.println("Your winnings are $" + winnings);		
 	} else {
-		System.out.println("Sorry, better luck next time.");
-    }
+	    System.out.println("Sorry, better luck next time.");
 	}
+    }
 }
 
