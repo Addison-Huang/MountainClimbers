@@ -8,7 +8,7 @@ public class Roulette extends Game {
     }
 
     public String toString() {
-	String retStr = "Welcome to Roulette!\n";
+	String retStr = "Welcome to Roulette! Here are the rules.\n";
 	retStr += "This board consists of 37 numbers labeled from 0 to 36.\n";
 	retStr += "You can either choose to bet on an even number, odd number, or zero.\n";
 	retStr += "Betting on even or odd will have a payout of 2 times what you bet, while betting on 0 will payout 35 times your bet!";

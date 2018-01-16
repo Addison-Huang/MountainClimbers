@@ -52,9 +52,10 @@ public class Slots extends Game {
     }
 
     public String toString() {
-	String retStr = "Welcome to Slots!\n";
-	retStr += "Spinning the slots machine costs 20 dollars.\n";
-	retStr += "Getting three sevens result in a 1000 dollar jackpot or three of the same fruit results in a 100 dollar jackpot\n";
+	String retStr = "Welcome to Slots! Here are the rules.\n";
+	retStr += "Spinning the slots machine costs $20.\n";
+	retStr += "Getting three sevens result in a $1000 jackpot or three of the same fruit results in a $100 jackpot\n";
+	retStr += "Anything else is a lose.\n";
 	return retStr;
     }
 	    

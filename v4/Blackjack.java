@@ -15,7 +15,7 @@ public class Blackjack extends Game{
 	
 	//override toString
     public String toString() {
-	String retstr = "Here are the rules for Blackjack\n";
+	String retstr = "Welcome to Blackjack. Here are the rules.\n";
 	retstr += "The goal of this game is to have a hand that totals more than the dealer's hand without exceeding 21.\n";
 	retstr += "1. The value of the cards corresponds to their number.\n";
 	retstr += "2. The value of the royals(jack, queen, king) are all 10.\n";
