@@ -4,9 +4,8 @@ Member Simon Tsui
 Member Addison Huang
 pd 1
 ---------------------
-<Project>
-
-
+An in-terminal casino simulation including slots, blackjack, roulette, poker, dice, and many more games! 
+The way to win is by buying all items in the shop
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 USAGE:
@@ -32,7 +31,7 @@ Flesh out each category whenever necessary, appropriate.
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<Wow, we so BOSS bc...>
+There was a bug where if you had two aces in your hand it would count them only as one but Kenny Li fixed it!
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,7 +46,7 @@ COOL STUFF LEARNED
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We changed ___ to ___ bc...
+We changed game to only having two abstract methods because each game was different but there was always two things in common, a method to run it, and a method to check if there was a win or not.
 <etc>
 <etc>
 
