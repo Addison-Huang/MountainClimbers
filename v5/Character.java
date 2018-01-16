@@ -118,7 +118,12 @@ public class Character {
 	    chooseGame();
 	}
     }
-    
+    public void termination(){
+      if(balance <= 0){
+        System.out.println("You have lost. Come back soon.");
+        quitGame();
+      }
+    }
     //after the game the player chooses what to do
     public void afterGame(Game g) {
 	System.out.println("\n");
@@ -144,7 +149,8 @@ public class Character {
     //the player quits 
     public void quitGame() {
 	System.out.println("Leaving game...");
-	System.out.println("Thanks for playing!");		
+	System.out.println("Thanks for playing!");
+	System.exit(0);		
     }
 
     //the player buys something from the shop, helper method
