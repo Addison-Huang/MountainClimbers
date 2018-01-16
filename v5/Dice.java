@@ -27,16 +27,22 @@ public class Dice extends Game{
     if(total == 7){
       System.out.println("The dice add up to 7, it is a tie");
       success = 1;
+      outcome(player);
+      System.out.println("Your balance: " + player.getBal());
       return ; //7 makes a tie
     }
     if(total == 11){
       System.out.println("The dice add up to 11, you're a winner!");
       success = 2;
+      outcome(player);
+      System.out.println("Your balance: " + player.getBal());
       return ;  //11 is a winner
     }
     if(total == 2 || total == 3 || total == 12){
       System.out.println("The dice add up to " + total + ", sorry better luck next time.");
       success = 0;
+      outcome(player);
+      System.out.println("Your balance: " + player.getBal());
       return ; //these numbers are losses
     }
     else{
@@ -49,71 +55,92 @@ public class Dice extends Game{
         System.out.println("Round " + (i + 1) + "'s roll: " + total2);
         if(total2 == 7){
           success = 0;
+          outcome(player);
           System.out.println("Sorry, better luck next time.");
+          System.out.println("Your balance: " + player.getBal());
           return ;
         }
         if(total2 == total && (total == 4 || total == 10)){
           if(i == 1){
           success = 5;
+          outcome(player);
             System.out.println("Success, lucky much?");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
           if(i == 2){
           success = 4;
+          outcome(player);
             System.out.println("Huzzah, second time's the charm");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
           if(i == 3){
           success = 3;
+          outcome(player);
             System.out.println("Wowee, slow and steady wins the race");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
         }
         if(total2 == total &&(total == 5 || total == 9)){
           if(i == 1){
           success = 4;
+          outcome(player);
             System.out.println("Success, lucky much?");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
           if(i == 2){
           success = 3;
+          outcome(player);
             System.out.println("Huzzah, second time's the charm");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
           if(i == 3){
           success = 2;
+          outcome(player);
             System.out.println("Wowee, slow and steady wins the race");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
         }
         if(total2 == total && (total == 6 || total == 8)){
           if(i == 1){
           success = 3;
+          outcome(player);
             System.out.println("Success, lucky much?");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
           if(i == 2){
           success = 2;
+          outcome(player);
             System.out.println("Huzzah, second time's the charm");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
           if(i == 3){
           success = 1;
+          outcome(player);
             System.out.println("Wowee, slow and steady wins the race");
             System.out.println("You have won " + success + " times your bet!");
+            System.out.println("Your balance: " + player.getBal());
             return ;
           }
         }
       }
       System.out.println("Sorry, better luck next time.");
+      System.out.println("Your balance: " + player.getBal());
       return ;
     }
   }
