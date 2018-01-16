@@ -12,6 +12,8 @@ public class Character {
     public ArrayList<String> shop;
     public ArrayList<String> inventory;
     public ArrayList<Double> shopPrice;
+
+    
     
     public Character(){
 	username = "guest";
@@ -24,12 +26,12 @@ public class Character {
 
     public Character(String newName, String newPassword){
 	this();
-	username = newName;
+	username = newName;              
 	password = newPassword;
     }
 
     public double getBet() {
-	return bet;
+    	return bet;
 	}
 	
     public void remBal(double lost) {
@@ -126,6 +128,7 @@ public class Character {
     }
 
     public void placeBet(){
+	System.out.println("Your current balance is" + getBal());
 	System.out.println("What would you like to bet?");
 	double wager = Keyboard.readDouble();
 	if (minBet >= balance) {

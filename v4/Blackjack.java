@@ -6,14 +6,14 @@ public class Blackjack extends Game{
     private String[] dealerHand = new String[2];
     private String choice;
   
-	//default constructor
+    //default constructor
     public Blackjack(){
 	name = "Blackjack";
 	setHand(playerHand);
 	setHand(dealerHand);
     }
 	
-	//override toString
+    //override toString
     public String toString() {
 	String retstr = "Welcome to Blackjack. Here are the rules.\n";
 	retstr += "The goal of this game is to have a hand that totals more than the dealer's hand without exceeding 21.\n";
@@ -42,9 +42,9 @@ public class Blackjack extends Game{
 	return retstr;
     }
 
-	//-----methods dealing with hand-----
+    //-----methods dealing with hand-----
 	
-	//sets the starting hand of two cards
+    //sets the starting hand of two cards
     private void setHand(String[] hand){
 	for(int i = 0; i < 2; i++) {
 	    int random = (int)(Math.random() * 13);
@@ -52,7 +52,7 @@ public class Blackjack extends Game{
 	}
     }
 	
-	//adds a new card to hand
+    //adds a new card to hand
     private void addHand(String[] hand){
 	String[] temp = new String[hand.length + 1];
 	for(int i = 0; i < hand.length; i++){
@@ -67,8 +67,8 @@ public class Blackjack extends Game{
 	}
     }
 	
-	//helper method for calculating total dealing with aces   
-	private boolean hasAce(String[] hand) {
+    //helper method for calculating total dealing with aces   
+    private boolean hasAce(String[] hand) {
 	for (int i = 0; i < hand.length; i++) {
 	    if (hand[i].equals(deck[0])) {
 		return true;
@@ -77,7 +77,7 @@ public class Blackjack extends Game{
 	return false;
     }	
 
-	//calculates total of hand
+    //calculates total of hand
     private int calculateTotal(String[] hand){
 	int acectr = 0;
 	int total = 0;
@@ -104,124 +104,124 @@ public class Blackjack extends Game{
 	}
 	return total;
     }	
-	//-----------------------------------
+    //-----------------------------------
 	
 	
-	//-----methods dealing with split-----
+    //-----methods dealing with split-----
 	
-	//plays two hands after player chooses to split
-	private void playSplit(Character player) {
-		String[] temp = new String[1];
-		temp[0] = playerHand[0];
+    //plays two hands after player chooses to split
+    private void playSplit(Character player) {
+	String[] temp = new String[1];
+	temp[0] = playerHand[0];
 		
-		playerHand = new String[1];
-		playerHand = temp;
-		addHand(playerHand);
-		playerTurn(player);
-		if(isBust(playerHand)) {
-			playSecondHand(player, temp);
-		} else {
-			dealerTurn();
-			if (splitWin()) {
-				outcome(player);
-			} else {
-				playSecondHand(player, temp);
-			}
-		}
+	playerHand = new String[1];
+	playerHand = temp;
+	addHand(playerHand);
+	playerTurn(player);
+	if(isBust(playerHand)) {
+	    playSecondHand(player, temp);
+	} else {
+	    dealerTurn();
+	    if (splitWin()) {
+		outcome(player);
+	    } else {
+		playSecondHand(player, temp);
+	    }
 	}
-
-	//helper method to test if first hand in split wins
-	private boolean splitWin() {
-		int deal = calculateTotal(dealerHand);
-		int play = calculateTotal(playerHand);
-		if ((deal < play) || (isBust(dealerHand))) {
-			return true;
-		} else {
-			return false;
-		}
-	}	
-	
-	//helper method for creating the second hand
-	private void secondHand(String[] card) {
-		System.out.println("Sorry, better luck next time.\n");
-		System.out.println("This is your second hand.");
-		playerHand = new String[1];
-		playerHand = card;
-		addHand(playerHand);
-	}
-	
-	private void playSecondHand(Character player, String[] card) {
-		secondHand(card);
-		playerTurn(player);
-		if(isBust(playerHand)) {
-			System.out.println("Sorry, better luck next time.");
-		} else {
-			dealerTurn();
-			outcome(player);
-		}
-	}		
-	//-----------------------------------
-	
-	//-----methods dealing with win conditions-----
-	
-	//helper method for blackjackWin, tests if hand is blackjack
-	private boolean isBlackjack(String[] hand) {
-		int total = calculateTotal(hand);
-		if ((total == 21) && (hand.length == 2)) {
-			return true;
-		}
-		return false;
-	}
-	
-	//win conditions when someone has a blackjack
-    private boolean blackjackWin(Character player) {
-    if ((isBlackjack(playerHand)) && (isBlackjack(dealerHand))){
-        System.out.println("Both you and the dealer got a blackjack, so it's a draw.");
-        winnings = player.getBet();
-        player.addBal(winnings);
-		return true;
-    } else if(isBlackjack(playerHand)) {
-        System.out.println("Blackjack!");
-        winnings = player.getBet() * 2.5;
-        player.addBal(winnings);
-        System.out.println("You won $" + player.getBet());
-		return true;
-    } else if(isBlackjack(dealerHand)) {
-        System.out.println("The dealer got a Blackjack!");
-        System.out.println("Sorry, better luck next time.");
-		return true;
     }
+
+    //helper method to test if first hand in split wins
+    private boolean splitWin() {
+	int deal = calculateTotal(dealerHand);
+	int play = calculateTotal(playerHand);
+	if ((deal < play) || (isBust(dealerHand))) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }	
+	
+    //helper method for creating the second hand
+    private void secondHand(String[] card) {
+	System.out.println("Sorry, better luck next time.\n");
+	System.out.println("This is your second hand.");
+	playerHand = new String[1];
+	playerHand = card;
+	addHand(playerHand);
+    }
+	
+    private void playSecondHand(Character player, String[] card) {
+	secondHand(card);
+	playerTurn(player);
+	if(isBust(playerHand)) {
+	    System.out.println("Sorry, better luck next time.");
+	} else {
+	    dealerTurn();
+	    outcome(player);
+	}
+    }		
+    //-----------------------------------
+	
+    //-----methods dealing with win conditions-----
+	
+    //helper method for blackjackWin, tests if hand is blackjack
+    private boolean isBlackjack(String[] hand) {
+	int total = calculateTotal(hand);
+	if ((total == 21) && (hand.length == 2)) {
+	    return true;
+	}
 	return false;
     }
 	
-	//tests is hand is a bust (greater than 21)
-	private boolean isBust(String[] hand) {
-		if((calculateTotal(hand)) <= 21) {
-			return false;
-		} else {
-			return true;
-		}
+    //win conditions when someone has a blackjack
+    private boolean blackjackWin(Character player) {
+	if ((isBlackjack(playerHand)) && (isBlackjack(dealerHand))){
+	    System.out.println("Both you and the dealer got a blackjack, so it's a draw.");
+	    winnings = player.getBet();
+	    player.addBal(winnings);
+	    return true;
+	} else if(isBlackjack(playerHand)) {
+	    System.out.println("Blackjack!");
+	    winnings = player.getBet() * 2.5;
+	    player.addBal(winnings);
+	    System.out.println("You won $" + player.getBet());
+	    return true;
+	} else if(isBlackjack(dealerHand)) {
+	    System.out.println("The dealer got a Blackjack!");
+	    System.out.println("Sorry, better luck next time.");
+	    return true;
 	}
+	return false;
+    }
+	
+    //tests is hand is a bust (greater than 21)
+    private boolean isBust(String[] hand) {
+	if((calculateTotal(hand)) <= 21) {
+	    return false;
+	} else {
+	    return true;
+	}
+    }
 
-	//compares the total of player and dealer and determines outcome
+    //compares the total of player and dealer and determines outcome
     protected void outcome(Character player) {
-		int deal = calculateTotal(dealerHand);
-		int play = calculateTotal(playerHand);
-		if ((deal < play) || (isBust(dealerHand))) {
-			winnings = player.getBet() * 2;
-			player.addBal(winnings);
-			System.out.println("Winner! You won $" + winnings);
-		} else if (deal == play) {
-			winnings = player.getBet();
-			player.addBal(winnings);
-			System.out.println("It's a draw.");
-		} else {
-			System.out.println("Sorry, better luck next time.");
-		}
-	}	
-	//-----------------------------------
+	int deal = calculateTotal(dealerHand);
+	int play = calculateTotal(playerHand);
+	if ((deal < play) || (isBust(dealerHand))) {
+	    winnings = player.getBet() * 2;
+	    player.addBal(winnings);
+	    System.out.println("Winner! You won $" + winnings);
+	} else if (deal == play) {
+	    winnings = player.getBet();
+	    player.addBal(winnings);
+	    System.out.println("It's a draw.");
+	} else {
+	    System.out.println("Sorry, better luck next time.");
+	}
+    }	
+    //-----------------------------------
 
-	//the player's turn
+    //the player's turn
     private void playerTurn(Character player) {
 	boolean playing = true;
 	String statement = "Your cards are: " + " "+ playerHand[0] + " " + playerHand[1];
@@ -229,22 +229,22 @@ public class Blackjack extends Game{
 	    System.out.println(statement);
 	    int total = calculateTotal(playerHand);
 	    System.out.println("Your cards currently add up to: " + total);
-		if(!isBust(playerHand)) {
-			System.out.println("hit or stay?");
-			choice = Keyboard.readString();
-			if (choice.equals("hit")) {
-				addHand(playerHand);
-				statement += " " + playerHand[playerHand.length - 1];  
-			} else {
-				playing = false;
-			}
+	    if(!isBust(playerHand)) {
+		System.out.println("hit or stay?");
+		choice = Keyboard.readString();
+		if (choice.equals("hit")) {
+		    addHand(playerHand);
+		    statement += " " + playerHand[playerHand.length - 1];  
 		} else {
-			playing = false;
+		    playing = false;
 		}
+	    } else {
+		playing = false;
+	    }
 	}
     }
 	
-	//the dealer's turn
+    //the dealer's turn
     private void dealerTurn() {
 	System.out.println("It is the dealer's turn now.");
 	String statement = "The dealer's cards are: " + " " + dealerHand[0] + " " + dealerHand[1];
@@ -258,38 +258,38 @@ public class Blackjack extends Game{
 	System.out.println("The dealer's total is: " + calculateTotal(dealerHand));
     }
 
-	//play one round of Blackjack
+    //play one round of Blackjack
     protected void playOnce(Character player){
-    System.out.println(this);
-    if (toContinue()) {
-    player.placeBet();
-        if (playerHand[0].equals(playerHand[1])) {
-            System.out.println("Your cards are: " + " "+ playerHand[0] + " " + playerHand[1]);
-            System.out.println("Split? (yes or no)");
-            if (Keyboard.readString().equals("yes")) {
-                playSplit(player);
-            } else {
-                playerTurn(player);
-                if (isBust(playerHand)) {
-                    System.out.println("Sorry, better luck next time.");
-                } else {
-                    dealerTurn();
-                    outcome(player);
-                }
-            }
-        } else {
-            if (!blackjackWin(player)) {
-                playerTurn(player);
-                if (isBust(playerHand)) {
-                    System.out.println("Sorry, better luck next time");
-                } else {
-                    dealerTurn();
-                    outcome(player);
-                }
-            }
-        }
-    System.out.println("You have $" + player.getBal());	
-    }
+	System.out.println(this);
+	if (toContinue()) {
+	    player.placeBet();
+	    if (playerHand[0].equals(playerHand[1])) {
+		System.out.println("Your cards are: " + " "+ playerHand[0] + " " + playerHand[1]);
+		System.out.println("Split? (yes or no)");
+		if (Keyboard.readString().equals("yes")) {
+		    playSplit(player);
+		} else {
+		    playerTurn(player);
+		    if (isBust(playerHand)) {
+			System.out.println("Sorry, better luck next time.");
+		    } else {
+			dealerTurn();
+			outcome(player);
+		    }
+		}
+	    } else {
+		if (!blackjackWin(player)) {
+		    playerTurn(player);
+		    if (isBust(playerHand)) {
+			System.out.println("Sorry, better luck next time");
+		    } else {
+			dealerTurn();
+			outcome(player);
+		    }
+		}
+	    }
+	    System.out.println("You have $" + player.getBal());	
+	}
     }
 
 }//end class Blackjack
