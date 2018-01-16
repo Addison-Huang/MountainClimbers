@@ -9,7 +9,19 @@ public class Dice extends Game{
   }
   public String toString(){
     String retstr = "Welcome to Dice!\n";
-    retstr += "";
+    retstr += "The first round of dice will start when the two dice are rolled\n";
+    retstr += "The dice are added up and the sum will have to match the following win conditions\n";
+    retstr += "A 2, 3, or 10 leads to an immediate loss in the first round\n";
+    retstr += "Getting a 7 leads to an immediate tie, no change in balance here\n";
+    retstr += "Geting a 11 leads to an immediate win, money is gained\n";
+    retstr += "Getting any number other than the aforementioned leads to additional rolling\n";
+    retstr += "========================================================================\n";
+    retstr += "Additional Rolling Rules:\n";
+    retstr += "There will be up to three more rounds of rolling\n";
+    retstr += "The dice must equal the initial sum of the first roll to win\n";
+    retstr += "The money won will vary\n";
+    retstr += "Rolling a 7 results in automatic loss\n";
+    retstr += "After 3 rounds, if the aforementioned has not occured, the player has lost.";
     return retstr;
   }
   private int calculateTotal(int a, int b){
