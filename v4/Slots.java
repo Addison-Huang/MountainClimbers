@@ -60,14 +60,14 @@ public class Slots extends Game {
 	    
     protected void playOnce(Character player) {
 	System.out.println(this);
-	System.out.println("Continue? (yes or no)");
-	String cont = Keyboard.readString();
-	if (cont.equals("yes")) {
+	if(toContinue()) {
+		player.remBal(20.0);
 	    System.out.println("Spinning...");
 	    System.out.print("Results: ");
 	    spinOnce();
 	    System.out.println(display());
 	    outcome(player);
+        System.out.println("You have $" + player.getBal());
 	}
     }
 

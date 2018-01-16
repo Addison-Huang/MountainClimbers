@@ -17,13 +17,16 @@ public class Roulette extends Game {
 
     protected void playOnce(Character player) {
 	System.out.println(this);
-	System.out.println("What would you like to place your bet on (odd, even, or zero)");
-	gamble = Keyboard.readString();
-	player.placeBet();
-	System.out.println("Spinning....");
-	spin = (int)(Math.random() * 37);
-	System.out.println("It rolled on " + spin);
-	outcome(player);
+	if (toContinue()) {
+	    System.out.println("What would you like to place your bet on (odd, even, or zero)");
+	    gamble = Keyboard.readString();
+	    player.placeBet();
+	    System.out.println("Spinning....");
+	    spin = (int)(Math.random() * 37);
+	    System.out.println("It rolled on " + spin);
+	    outcome(player);
+	    System.out.println("You have $" + player.getBal());		
+	}
 	}
 
     protected void outcome(Character player) {
@@ -36,7 +39,7 @@ public class Roulette extends Game {
 	    winnings = player.getBet() * 2;
 	    player.addBal(winnings);
 	    System.out.println("Better luck next time!");
-	}
+	}	
     }
 }
 

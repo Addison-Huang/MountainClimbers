@@ -9,8 +9,6 @@ public class Character {
     private double balance;
     private double bet;
     private double minBet = 20.0;
-    private int winCounter;
-    private int lossCounter;
     public ArrayList<String> shop;
     public ArrayList<String> inventory;
     public ArrayList<Double> shopPrice;
@@ -23,6 +21,7 @@ public class Character {
 	inventory = new ArrayList<String>();
 	shopPrice = new ArrayList<Double>(Arrays.asList(100.0, 300.0, 400.0, 23.0));
     }
+
     public Character(String newName, String newPassword){
 	this();
 	username = newName;
@@ -32,9 +31,13 @@ public class Character {
     public double getBet() {
 	return bet;
 	}
-
+	
     public void remBal(double lost) {
 	balance -= lost;
+    }
+	
+    public void addBal(double winnings) {
+	balance += winnings;
     }
 	
     public double getBal() {
@@ -42,41 +45,70 @@ public class Character {
     }
     
     public void choosePlace(){
-	System.out.println("Choose a place to go: ");
-	String location = "casino";  //takes in input from person
-	if(location.equals("Casino")){
-
+	System.out.println("Where would you like to go? (casino, bar, shop)");
+	String location = Keyboard.readString();
+	if (location.equals("casino")){
 	    chooseGame();
-	}
-	else if(location.equals("Bar")){
+	} else if(location.equals("bar")){
 	    chooseDrink();
+	} else if(location.equals("shop")){
+		shop();
 	}
-	    
     }
 
-    public void addBal(double winnings) {
-	balance += winnings;
-    }
-    public void chooseGame(){
-	System.out.println("Choose a game:");
-	String s = "slots"; //prompts user
-	if(s.equals("slots")){
-
+	public void shop() {
 	}
-	else if(s.equals("roulette")){
 
+
+
+    public void chooseGame() {
+	System.out.println("Which game would you like to play? (slots, roulette, blackjack)");
+	String game = Keyboard.readString();
+	if(game.equals("slots")){
+		Game g = new Slots();
+		g.playOnce(this);
+		afterGame(g);	
+	}else if(game.equals("roulette")){
+		Game g = new Roulette();
+		g.playOnce(this);
+		afterGame(g);		
+	}else if(game.equals("blackjack")){
+		Game g = new Blackjack();
+		g.playOnce(this);
+		afterGame(g);		
+	}
 	}
 	
-	
-    }
-    public void chooseDrink(){
+	public void afterGame(Game g) {
+	System.out.println("\n");
+	System.out.println("What would you like to do? (choose a number)");
+	String str = ("1. Play again.\n");
+	str += ("2. Play different game.\n");
+	str += ("3. Go somewhere else.\n");
+	str += ("4. Quit.\n");
+	System.out.println(str);
+	int x = Keyboard.readInt();
+	if (x == 1) {
+		g.playOnce(this);
+		afterGame(g);
+	} else if (x == 2) {
+		chooseGame();
+	} else if (x == 3) {
+		choosePlace();
+	} else if (x == 4) {
+		quitGame();
+	}
+	}
+    
+	public void chooseDrink(){
 
     }
 
-    public void toExit() {
+	public void quitGame() {
 	System.out.println("Leaving game...");
-	System.out.println("Thanks for playing!");
+	System.out.println("Thanks for playing!");		
     }
+
 
     public boolean toBuy() {
 	int x = 2;
