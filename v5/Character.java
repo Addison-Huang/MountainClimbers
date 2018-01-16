@@ -35,12 +35,14 @@ public class Character {
     }
     
     public void choosePlace(){
-	System.out.println("Where would you like to go? (casino or shop)");
+	System.out.println("Where would you like to go? (casino, shop or quit)");
 	String location = Keyboard.readString();
 	if (location.equals("casino")){
 	    chooseGame();
 	} else if(location.equals("shop")){
 		shop();
+	} else if(location.equals("quit")){
+		quitGame();
 	}
     }
 
@@ -119,17 +121,14 @@ public class Character {
     }
 
 
-    public boolean toBuy(int x) {
-	if (balance > shopPrice.get(x)) {
+    public void toBuy(int x) {
+	if (balance >= shopPrice.get(x)) {
 	    String y = shop.remove(x);
 	    balance -= shopPrice.remove(x);
 	    inventory.add(y);
 	    System.out.println(y + " added to your inventory.");
-	    return true;
-	}
-	else {
+	} else {
 	    System.out.println("Insufficient balance");
-	    return false;
 	}
     }
 

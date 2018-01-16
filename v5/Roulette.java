@@ -38,8 +38,11 @@ public class Roulette extends Game {
 	} else if (((spin % 2 == 0) && (gamble.equals( "even"))) || ((spin % 2 == 1) && (gamble.equals("odd")))) {
 	    winnings = player.getBet() * 2;
 	    player.addBal(winnings);
-	    System.out.println("Better luck next time!");
-	}	
+	    System.out.println("We have a winner!");
+	    System.out.println("Your winnings are $" + winnings);		
+	} else {
+		System.out.println("Sorry, better luck next time.");
     }
+	}
 }
 
