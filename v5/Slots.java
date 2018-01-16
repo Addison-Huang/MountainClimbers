@@ -1,3 +1,8 @@
+/*Mountain Climbers
+Kenny Li, Addison Huang, Simon Tsui
+APCS1 pd1
+*/
+
 import cs1.Keyboard;
 public class Slots extends Game {
     //instance var storing all combinations

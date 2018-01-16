@@ -1,3 +1,8 @@
+/*Mountain Climbers
+Kenny Li, Addison Huang, Simon Tsui
+APCS1 pd1
+*/
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import cs1.Keyboard;

@@ -1,3 +1,8 @@
+/*Mountain Climbers
+Kenny Li, Addison Huang, Simon Tsui
+APCS1 pd1
+*/
+
 public class Woo{
     public static void main(String[] args){
 	System.out.println("Welcome to MC's casino corner");
