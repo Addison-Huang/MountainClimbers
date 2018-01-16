@@ -72,6 +72,7 @@ public class Character {
 	} else {
 		return false;
 	}
+	}
 
     public void chooseGame() {
 	System.out.println("Which game would you like to play? (slots, roulette, blackjack)");
