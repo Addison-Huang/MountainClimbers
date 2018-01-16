@@ -58,8 +58,19 @@ public class Character {
 		choosePlace();
 	} else {
 		toBuy(x - 1);
+		if (isWin()) {
+			System.out.println("Congratulations, you win!");
+		} else {
 		shop();
+		}
 	}
+	}
+	
+	public boolean isWin() {
+	if (shop.size() == 0) {
+		return true;
+	} else {
+		return false;
 	}
 
     public void chooseGame() {
