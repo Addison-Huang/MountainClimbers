@@ -118,10 +118,16 @@ public class Character {
 	    chooseGame();
 	}
     }
-    
+    public void termination(){
+      if(balance <= 0){
+        System.out.println("You have lost. Come back soon.");
+        quitGame();
+      }
+    }
     //after the game the player chooses what to do
     public void afterGame(Game g) {
 	System.out.println("\n");
+	termination();
 	System.out.println("What would you like to do? (choose a number)");
 	String str = ("1. Play again.\n");
 	str += ("2. Play different game.\n");
@@ -144,12 +150,13 @@ public class Character {
     //the player quits 
     public void quitGame() {
 	System.out.println("Leaving game...");
-	System.out.println("Thanks for playing!");		
+	System.out.println("Thanks for playing!");
+	System.exit(0);		
     }
 
     //the player buys something from the shop, helper method
     public void toBuy(int x) {
-	if (balance >= shopPrice.get(x)) {
+	if (balance > shopPrice.get(x)) {
 	    String y = shop.remove(x);
 	    balance -= shopPrice.remove(x);
 	    inventory.add(y);
