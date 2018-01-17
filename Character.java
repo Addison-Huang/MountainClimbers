@@ -26,7 +26,7 @@ public class Character {
 
     //returns bet
     public double getBet() {
-    	return bet;
+    return bet;
     }
 
     //removes lost from balance
@@ -118,34 +118,42 @@ public class Character {
 	    chooseGame();
 	}
     }
-    public void termination(){
-      if(balance <= 0){
-        System.out.println("You have lost. Come back soon.");
-        quitGame();
-      }
+	
+	//tests to see if player loses
+    public boolean termination(){
+    if(balance <= 0){
+        return true;
+    } else {
+        return false;
     }
+	}
+	
     //after the game the player chooses what to do
     public void afterGame(Game g) {
 	System.out.println("\n");
-	termination();
-	System.out.println("What would you like to do? (choose a number)");
-	String str = ("1. Play again.\n");
-	str += ("2. Play different game.\n");
-	str += ("3. Go somewhere else.\n");
-	str += ("4. Quit.\n");
-	System.out.println(str);
-	int x = Keyboard.readInt();
-	if (x == 1) {
-	    g.playOnce(this);
-	    afterGame(g);
-	} else if (x == 2) {
-	    chooseGame();
-	} else if (x == 3) {
-	    choosePlace();
-	} else if (x == 4) {
-	    quitGame();
-	}
+	if (termination()) {
+		System.out.println("You have lost. Come back soon.");
+        quitGame();
+	} else {
+		System.out.println("What would you like to do? (choose a number)");
+		String str = ("1. Play again.\n");
+		str += ("2. Play different game.\n");
+		str += ("3. Go somewhere else.\n");
+		str += ("4. Quit.\n");
+		System.out.println(str);
+		int x = Keyboard.readInt();
+		if (x == 1) {
+			g.playOnce(this);
+			afterGame(g);
+		} else if (x == 2) {
+			chooseGame();
+		} else if (x == 3) {
+			choosePlace();
+		} else if (x == 4) {
+			quitGame();
+		}
     }
+	}
 
     //the player quits 
     public void quitGame() {
@@ -190,6 +198,4 @@ public class Character {
 	    placeBet();
 	}
     }
-	
-	
-}
+}//end class character

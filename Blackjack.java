@@ -1,21 +1,19 @@
 /*Mountain Climbers
-Kenny Li, Addison Huang, Simon Tsui
-APCS1 pd1
+  Kenny Li, Addison Huang, Simon Tsui
+  APCS1 pd1
 */
 
 import cs1.Keyboard;
 
 public class Blackjack extends Game{
     private String[] deck = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
-    private String[] playerHand = new String[2];
-    private String[] dealerHand = new String[2];
+    private String[] playerHand;
+    private String[] dealerHand;
     private String choice;
   
     //default constructor
     public Blackjack(){
 	name = "Blackjack";
-	setHand(playerHand);
-	setHand(dealerHand);
     }
 	
     //override toString
@@ -267,6 +265,10 @@ public class Blackjack extends Game{
     protected void playOnce(Character player){
 	System.out.println(this);
 	if (toContinue()) {
+	    dealerHand = new String[2];
+	    playerHand = new String[2];
+	    setHand(playerHand);
+	    setHand(dealerHand);
 	    player.placeBet();
 	    if (playerHand[0].equals(playerHand[1])) {
 		System.out.println("Your cards are: " + " "+ playerHand[0] + " " + playerHand[1]);
