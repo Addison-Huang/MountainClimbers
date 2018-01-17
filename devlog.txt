@@ -83,11 +83,13 @@ Addison :: Wrote class Roulette
 Addison Huang :: Wrote class Slots
 --------------------------------------------------------------
 2018-01-15
+Simon Tsui :: Wrote version 1 of class Blackjack
 --------------------------------------------------------------
 Addison Huang :: Updated uml and flowchart
 Addison Huang :: Edited blackjack to include split
 Addison Huang :: Updated comments
-
+Simon Tsui :: Wrote class Dice
 2018-01-16
 --------------------------------------------------------------
+Simon Tsui :: Added loss scenario
 ==============================================================
