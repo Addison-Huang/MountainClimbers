@@ -127,6 +127,7 @@ public class Character {
     //after the game the player chooses what to do
     public void afterGame(Game g) {
 	System.out.println("\n");
+	termination();
 	System.out.println("What would you like to do? (choose a number)");
 	String str = ("1. Play again.\n");
 	str += ("2. Play different game.\n");
