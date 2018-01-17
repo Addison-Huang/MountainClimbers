@@ -156,7 +156,7 @@ public class Character {
 
     //the player buys something from the shop, helper method
     public void toBuy(int x) {
-	if (balance >= shopPrice.get(x)) {
+	if (balance > shopPrice.get(x)) {
 	    String y = shop.remove(x);
 	    balance -= shopPrice.remove(x);
 	    inventory.add(y);
