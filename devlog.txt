@@ -4,8 +4,8 @@ Member Simon Tsui
 Member Addison Huang
 pd 1
 ---------------------
-An in-terminal casino simulation including slots, blackjack, roulette, poker, dice, and many more games! 
-The way to win is by buying all items in the shop
+An in-terminal casino simulation including slots, blackjack, roulette, poker, dice.
+The way to win is by buying all items in the shop and losing is when you run out of money.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 USAGE:
@@ -31,7 +31,8 @@ Flesh out each category whenever necessary, appropriate.
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-There was a bug where if you had two aces in your hand it would count them only as one but Kenny Li fixed it!
+-There was a bug where if you had two aces in your hand it would count them only as one but Kenny Li fixed it!
+-Bug where the dealer's hand would not be reset if you chose to play blackjack again. We made the dealer hand and player hand be reshuffled each time the game was ran.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,7 +47,8 @@ COOL STUFF LEARNED
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We changed game to only having two abstract methods because each game was different but there was always two things in common, a method to run it, and a method to check if there was a win or not.
+-We changed game to only having two abstract methods because each game was different but there was always two things in common, a method to run it, and a method to check if there was a win or not.
+-We were originally going to have user accounts but decided not to in the end.
 <etc>
 <etc>
 
@@ -69,9 +71,23 @@ LESSONS LEARNED
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
-yyyy-mm-dd
+2018-01-12
 --------------------------------------------------------------
 <Member> :: <Thing member did.>
 <Member> :: <Thing member did.>
 <Member> :: <Thing member did.>
+2018-01-13
+Addison :: Wrote class Roulette
+--------------------------------------------------------------
+2018-01-14
+Addison Huang :: Wrote class Slots
+--------------------------------------------------------------
+2018-01-15
+--------------------------------------------------------------
+Addison Huang :: Updated uml and flowchart
+Addison Huang :: Edited blackjack to include split
+Addison Huang :: Updated comments
+
+2018-01-16
+--------------------------------------------------------------
 ==============================================================
